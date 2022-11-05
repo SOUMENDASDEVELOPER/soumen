@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <style>
+        body{
+            margin:30px;
+            padding:0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        
+        }
+        
+        .calendar{
+            width:500px;
+            height:250px;
+            background:rgb(234, 209, 209);
+            box-sizing:border-box;
+          
+        }
+        ol{
+            list-style: none;
+            margin-left:30px;
+            
+            padding: 5px;
+        }
+        li{
+            padding:4px;
+        }
+        
+        
+        .calendar .date{
+            padding:5px;
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(65px,auto));
+            box-sizing: border-box;
+            
+        }
+
+        .calendar .date div{
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            height:25px;
+            
+           
+        }
+
+        .calendar .date div.day{
+            font-weight: 600;
+        }
+        .firstnumber{
+            grid-column-start: 5;
+        }
+        .heading{
+            text-align: center;
+            margin-top: 0;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="calendar">
+        <div class="heading">
+            <h2>December 2022</h2>
+        </div>
+        <ol class="date">
+            <li class="day">Sun</li>
+            <li class="day">Mon</li>
+            <li class="day">Tues</li>
+            <li class="day">Wed</li>
+            <li class="day">Thu</li>
+            <li class="day">Fri</li>
+            <li class="day">Sat</li>
+            <li class=" firstnumber">1</li>
+            <li class="number">2</li>
+            <li class="number">3</li>
+            <li class="number">4</li>
+            <li class="number">5</li>
+            <li class="number">6</li>
+            <li class="number">7</li>
+            <li class="number">8</li>
+            <li class="number">9</li>
+            <li class="number">10</li>
+            <li class="number">11</li>
+            <li class="number">12</li>
+            <li class="number">13</li>
+            <li class="number">14</li>
+            <li class="number">15</li>
+            <li class="number">16</li>
+            <li class="number">17</li>
+            <li class="number">18</li>
+            <li class="number">19</li>
+            <li class="number">20</li>
+            <li class="number">21</li>
+            <li class="number">22</li>
+            <li class="number">23</li>
+            <li class="number">24</li>
+            <li class="number">25</li>
+            <li class="number">26</li>
+            <li class="number">27</li>
+            <li class="number">28</li>
+            <li class="number">29</li>
+            <li class="number">30</li>
+            <li class="number">31</li>
+
+
+        
+        </ol>
+    </div>
+</body>
+</html>
