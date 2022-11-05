@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation</title>
+    <style>
+        
+        *{
+            margin:1px;
+            padding:0px;
+            box-sizing:border-box;
+            
+
+        }
+        body{
+            scroll-behavior: smooth;
+
+        }
+        #container{
+            height:130px;
+            width:600px;
+            background:rgb(142, 217, 235);
+            margin-top:20px;
+            
+      
+        }
+        #child{
+            height:130px;
+            width:220px;
+            background-color:rgb(226, 234, 237) ;
+            padding:5px;
+            text-align: center;
+            margin-top:50px;
+            font-weight: bolder;
+            font-size:30px;
+            
+            
+        }
+        p+div{
+            color: rgb(232, 232, 243);
+        }
+        #container p{
+            color:rgb(125, 216, 21);
+        }
+        #child div::after{
+            content: 'LIFESTYLE';
+            background-color: rgb(17, 231, 14);
+            animation: horizontally 8s infinite  ease-in;
+            
+            
+            
+        }
+        #container:hover> #child{
+            animation: horizontally 8s infinite ease-in;
+        }
+        @keyframes horizontally{
+            0%{
+                content:'LIFESTYLE';
+                transform:translateX(0%);
+                background-color: green;
+                
+            }
+            50%{
+                content:'WORK';
+                transform:translateX(90%);
+                background-color: blue;
+                
+
+            }
+            100%{
+                content:'EVERYTHING';
+                transform:translateX(190%);
+                background-color: brown;
+            }
+
+            }
+        
+
+        
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="child">
+           <p>MAKE</p> <div></div><p>AWESOME!</p>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>
