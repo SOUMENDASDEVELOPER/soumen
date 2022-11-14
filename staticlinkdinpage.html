@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Static Linkedin Page</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(232, 237, 237);
+        }
+        .envelop{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            gap:1rem;
+            padding:0 5rem;
+            background: white;
+        }
+        .left,.right{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            gap:1.7rem;
+           
+
+        }
+        .left{
+            padding-left: 1.9rem;
+            gap:0.6rem;
+            display:flex;
+            
+        }
+        .left .logo {
+            font-size: 2.5rem;
+            color:rgb(71, 51, 200);
+            cursor: pointer;
+        }
+        nav .envelop .left .input{
+            background-color:rgb(217, 226, 230);
+            width:100%;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            gap:0.5rem;
+            border-radius:0.3rem;
+
+
+        }
+        .input input[type="search"]{
+            width:15rem;
+            border:none;
+            background: transparent;
+        }
+        .input input[type="search"]::placeholder{
+            font-size: 0.8rem;
+            color:rgb(88, 87, 87);
+            font-weight:150;
+            
+        }
+        .right .home,
+        .right .mynetwork,
+        .right .jobs,
+        .right .massage,
+        .right .notification,
+        .right .me,
+        .right .work {
+
+            display:flex;
+            flex-direction:column ;
+            align-items: center;
+            justify-content: center;
+            gap:0.5rem;
+            cursor: pointer;
+        }
+
+        .right .home i,
+        .right .mynetwork i,
+        .right .jobs i ,
+        .right .massage i,
+        .right .notification i{
+            font-size:1.2rem;
+        }
+
+        .right .mynetwork,
+        .right .jobs,
+        .right .massage,
+        .right .notification,
+        .right .me,
+        .right .work{
+            color:grey;
+            
+        }
+        nav .envelop .right .home,
+        nav .envelop .right .mynetwork:hover,
+        nav .envelop .right .jobs:hover,
+        nav .envelop .right .massage:hover,
+        nav .envelop .right .notification:hover,
+        nav .envelop .right .me .down:hover,
+        
+        nav .envelop .right .work:hover{
+             color:black;
+        }
+        .down{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:0.4rem;
+        }
+        .me img{
+            width:1.3rem;
+            height:1.3rem;
+            border-radius: 50%;
+            
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            background-color:grey;
+            color:azure;
+
+        }
+        .work i{
+            font-size: 1.2rem;
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            
+
+        }
+        .premium{
+            text-decoration:underline rgb(228, 126, 47);
+            color: rgb(228, 126, 47);
+            font-size: 1.1rem;
+            width:6rem;
+            text-align: center;
+            cursor:pointer;
+            
+
+        }
+        /* ==================SIDEBAR============= */
+        .container{
+            display: grid;
+            grid-template-columns: 20% 52% 28%;
+            gap:1.5rem;
+            width:85%;
+            margin:1rem auto;
+            
+        }
+        aside .sidebarone{
+            background-color: white;
+            width:100%;
+            height:52vh;
+            border-radius: 0.8rem;
+            position:relative;
+            overflow: hidden;
+            border:1px solid rgb(220, 215, 215);
+        }
+        .sidebarone .top {
+             width:100%;
+             height:9vh;
+             background-color: rgb(146, 140, 140);
+             position:absolute;
+        }
+
+        .sidebarone img{
+            height: 70px;
+            width: 70px;
+            position:relative;
+            left:50%;
+            transform:translate(-50%);
+            top:30%;
+            border-radius: 50%;
+            border:2px solid white;
+        }
+        .profile {
+            position:relative;
+            text-align:center;
+            color:rgb(11, 11, 11);
+            margin-top:7rem;
+            display: flex;
+            flex-direction: column;
+            gap:0.5rem;
+            border-bottom: 1px solid rgb(220, 215, 215);
+            height:10vh;
+        }
+        .profile h3:hover{
+                  text-decoration: underline;
+                  cursor: pointer;
+        }
+        .profile small{
+            
+            font-size: 0.8rem;
+            color:rgb(122, 121, 124);
+        }
+        .top2{
+            width:100%;
+            height:10vh;
+            background-color:white;
+            position:absolute;
+            border-bottom: 1px solid rgb(218, 213, 213);
+        }
+        .connections{
+            width:100%;
+            margin-top: 1rem;
+            padding-left: 0.5rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            text-align:left;
+            color:grey;
+        } 
+        .connections:hover{
+            background-color: rgb(223, 228, 228);
+        }  
+        .top3{
+            width:100%;
+            height:8vh;
+            background-color:white;
+            margin-top: 4.1rem;
+            position:absolute;
+            border-bottom: 1px solid rgb(218, 213, 213);
+            display:flex;
+            flex-direction: column;
+            padding-left: 0.6rem;
+            padding-top:0.5rem;
+            border-bottom: 1px solid rgb(218, 213, 213); 
+        }
+        .top3 small{
+            color: grey;
+            font-weight: 5;
+        }
+        .top3 h5{
+            color:rgb(41, 39, 39);
+            font-weight: 100;
+        }
+        .top3 h5:hover{
+            color:rgb(55, 67, 235);
+            text-decoration: underline;
+            cursor: pointer;
+            
+
+        }
+        .top3:hover{
+            background-color: rgb(223, 228, 228);
+        }
+
+        .top3 .rectangle{
+            display:flex;
+            flex-direction:row;
+            gap:1rem;
+            cursor: pointer;
+
+        }
+        .rectangle i{
+            color:rgb(220, 149, 26);
+            width:0.1rem;
+            height: 0.1rem;
+        }
+        .rectangle h5{
+            text-decoration: underline;
+            font-size: small;
+            font-family:'Times New Roman', Times, serif;
+            font-weight: 400
+            
+        }
+        .topend .myitem{
+            width:100%;
+            height:7vh;
+            background-color:white;
+            margin-top: 7.4rem;
+            position:relative;
+            display:flex;
+            flex-direction: row;
+            gap:0.6rem;
+            align-items: center;
+            padding-left:0.5rem ;
+            cursor: pointer;
+            border-bottom: 1px solid rgb(218, 213, 213);
+            
+
+        } 
+        .topend .myitem i{
+            color:grey;
+        }
+        .myitem h5{
+            color:rgb(38, 37, 37);
+            font-weight: 100;
+            font-size: small;
+        }
+        .topend :hover{
+            background-color: rgb(223, 228, 228);
+        }
+        aside .sidebar2{
+            background-color: white;
+            width:100%;
+            height:25vh;
+            border-radius: 0.8rem;
+            position:relative;
+            overflow: hidden;
+            border:1px solid rgb(220, 215, 215);
+            display: flex;
+            margin-top: 0.5rem;
+    
+        }
+        .sidebar2 .others{
+            width:100%;
+            height:14vh;
+            background-color:white;
+            margin-top: 1.5rem;
+            position:relative;
+            text-align: left;
+            color: blue;
+            display: flex;
+            flex-direction: column;
+            gap:1rem;
+            padding-left: 0.6rem;
+            border-bottom: 1px solid rgb(218, 213, 213);
+        }
+        .sidebar2 .others h5:hover{
+            color:blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .discovermore{
+            width:100%;
+            height: 9vh;
+            margin-top:7rem;
+            padding-top:1.3rem;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+            font-weight:100;
+            position:absolute;
+
+
+        }
+        .sidebar2 .discovermore h5{
+            color: rgb(159, 154, 154);
+            cursor: pointer;
+
+        }
+        .discovermore:hover{
+            background-color:  rgb(223, 228, 228);
+        }
+        /* main */
+        .main{
+            background-color: white;
+            width:100%;
+            height:18vh;
+            border-radius: 0.8rem;
+            position:relative;
+            overflow: hidden;
+            border:1px solid rgb(220, 215, 215);
+        }
+        
+        .main .startpost{
+            width:100%;
+            height:9vh;
+            position:relative;
+            overflow: hidden;
+            display:flex;
+            flex-direction: row;
+            gap:0.3rem;
+            background-color:white;
+            border-radius: 1rem;
+            
+        }
+        .startpost img{
+            height: 60px;
+            width: 60px;
+            position:relative;
+            margin-left:1rem ;
+            padding-top: 0.3rem;
+            border-radius: 50%;
+            border:2px solid white;
+            cursor: pointer;
+        }
+        .startpost .input{
+            background-color:rgb(217, 226, 230);
+            width:100%;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            gap:0.5rem;
+            border-radius:0.3rem;
+        }
+        .startpost input[type="search"]{
+            width:80%;
+            height:3rem;
+            margin-top:.5rem;
+            border:solid 1px grey;
+            
+            background: transparent;
+            border-radius: 1.5rem;
+        }
+        .startpost input[type="search"]::placeholder{
+            font-size: 0.9rem;
+            color:rgb(164, 159, 159);
+            font-weight:150;
+            padding-left: 1rem;
+        }
+        .startpost input[type="search"]:hover{
+            background-color: rgb(223, 228, 228);
+            cursor: pointer; 
+        }
+        .startpostothers{
+            width:100%;
+            height:5vh;
+            display:flex;
+            flex-direction: row;
+            margin-top:none;
+            padding-top: 0.3rem;
+            margin-left:0.5rem ;
+            padding-left: 0.9rem;
+            gap:4rem;
+            position: absolute;
+        }
+        .startpostothers .photo {
+            margin-top: none;
+            width:13%;
+            height:5vh;
+            padding-top:0.7rem;
+            padding-left:0.3rem;
+            display:flex;
+            flex-direction: row;
+            gap:0.5rem; 
+            color:grey;
+            position: relative;
+
+        }
+        .startpostothers .photo:hover{
+            background-color:rgb(223, 228, 228);
+            cursor: pointer;
+            height:3rem;
+            border-radius: .2rem;
+            
+            
+        }
+        .startpostothers .photo i{
+            color:rgb(38, 136, 210);
+            font-size:1.2rem;
+
+        }
+        .startpostothers .video{
+            margin-top: none;
+            width:13%;
+            height:5vh;
+            padding-top:0.7rem;
+            padding-left:0.3rem;
+            display:flex;
+            flex-direction: row;
+            gap:0.5rem; 
+            color:grey;
+            position: relative;
+        }
+        .startpostothers .video i{
+            color:rgb(24, 158, 24);
+            font-size:1.3rem; 
+        }
+        .startpostothers .video:hover{
+            background-color:rgb(223, 228, 228);
+            cursor: pointer;
+            height:3rem;
+            border-radius: .2rem;
+        }    
+        
+        .startpostothers .event{
+            margin-top: none;
+            width:13%;
+            height:5vh;
+            padding-top:0.7rem;
+            padding-left:0.3rem;
+            display:flex;
+            flex-direction: row;
+            gap:0.5rem; 
+            color:grey;
+            position: relative;
+        }
+        .startpostothers .event i{
+            color:rgb(192, 124, 28);
+            font-size:1.2rem; 
+        }
+        .startpostothers .event:hover{
+            background-color:rgb(223, 228, 228);
+            cursor: pointer;
+            height:3rem;
+            border-radius: .2rem;
+        }    
+        .startpostothers .article{
+            width:20%;
+            height: 7vh;
+            display: flex;
+            padding-top:0.7rem;
+            flex-direction: row;
+            gap:0.4rem;
+            color:grey;
+            position: relative;
+            
+
+        }
+        .startpostothers .article i{
+            color:rgb(244, 156, 32);
+            font-size:1.3rem; 
+        }
+        .startpostothers .article:hover{
+            background-color:rgb(223, 228, 228);
+            cursor: pointer;
+            height:3rem;
+            border-radius: .2rem;
+        }
+        .display1{
+            background-color: white;
+            width:100%;
+            height:50vh;
+            border-radius: 0.8rem;
+            position:relative;
+            overflow: hidden;
+            
+            display: flex;
+            flex-direction: column;
+            margin-top:0.5rem;
+    
+        }
+        .hr{
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .hr hr{
+            flex:1;
+            border:0;
+            height:1px;
+            background: #ccc;
+        }
+        .hr i{
+            cursor: pointer;
+        }
+        .display1 .displaypost{
+            width:100%;
+            position: absolute;
+            overflow:hidden;
+            background-color:white ;
+        }
+
+        /*rightside*/
+        .rightside{
+            background-color: white;
+            width:100%;
+            height:52vh;
+            border-radius: 0.8rem;
+            position:relative;
+            overflow: hidden;
+            border:1px solid rgb(220, 215, 215);
+            
+        }
+
+        .linkedinnews{
+            background-color: white;
+            width:100%;
+            height:50vh;
+            border-radius: 0.8rem;
+            position:relative;
+            overflow: hidden; 
+
+        }
+
+        .linkedinnews .newscontain{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 1rem;
+            display:flex;
+            justify-content: space-between;
+            color:rgb(89, 86, 86);
+
+        }
+        .linkedinnews .newscontain i{ 
+            cursor: pointer;  
+        }
+        
+        .information div{
+            width:100%;
+            margin-top: 0.5rem;
+            padding-left: 0.5rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height:2rem;
+            color:rgb(89, 86, 86);
+            padding-left: 1rem;
+        } 
+        
+        .information h5{
+            font-size: small;
+            font-weight: 100;
+            color:rgb(205, 201, 201);
+        }
+        .information div:hover{
+            width:100%;
+            background-color: rgb(223, 228, 228);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="envelop">
+            <div class="left">
+
+                <div class="logo">
+                <i class="fa-brands fa-linkedin"></i>
+                </div>
+                <div class="input">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" placeholder="Search">
+                
+                </div>
+           </div>
+           <div class="right">
+                <div class="home">
+                    <i class="fa-solid fa-house"></i>
+                    <h6>Home</h6>
+                </div>
+                <div class="mynetwork">
+                    <i class="fa-solid fa-users"></i>
+                    <h6>My Network</h6>
+                </div>
+                <div class="jobs">
+                    <i class="fa-solid fa-suitcase"></i>
+                    <h6>Jobs</h6>
+                </div>
+                <div class="massage">
+                    <i class="fa-brands fa-facebook-messenger"></i>
+                    <h6>Massage</h6>
+                </div>
+                <div class="notification">
+                    <i class="fa-sharp fa-solid fa-bell"></i>
+                    <h6>Notification</h6>
+                </div>
+                <div class="me">
+                    <!--i class="fa-solid fa-user"></i-->
+                    <img src="C:\Users\intel\Desktop\Hands On\practice.html\likedinpic.jpeg" alt="image">
+                    <div class="down">
+                        <h6>Me</h6>
+                        <i class="fa-sharp fa-solid fa-caret-down"></i>
+                    </div>
+                    
+
+                </div>
+                <div class="work">
+                    <i class="fa-solid fa-braille"></i>
+                    <div class="down">
+                        <h6>Work</h6>
+                        <i class="fa-sharp fa-solid fa-caret-down"></i>
+                    </div>
+                    
+
+                </div>
+                <div class="premium">
+                   <h6>Try Premium for Free</h6>
+                    
+                </div>
+           </div>
+        </div>
+    </nav>
+    <!--=====nav bar end======-->
+    <div class="container">
+        <aside>
+            <div class="sidebarone">
+                <div class="top">
+                    <img src="C:\Users\intel\Desktop\Hands On\practice.html\likedinpic.jpeg" alt="image">
+                </div>
+                <div class="profile">
+                    <h3>Soumen Das</h3>
+                    <small> Front End Web Developer</small>
+                    
+                </div>
+                <div class="top2">
+                    <div class="connections">
+                      <small>Connections</small>
+                      <h5>Grow your network</h5>  
+                    </div>
+
+                </div>
+                <div class="top3">
+                    <small>Acess exclusive tools & inshits</small>
+                    <div class="rectangle">
+                        <i class="fa-solid fa-square"></i>
+                        <h5>Try premium for free</h5>
+                    </div>
+                    
+                    
+                    
+                </div>
+                <div class="topend">
+                    <div class="myitem">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <h5>My items</h5>
+                    </div>
+                    
+                </div>
+                    
+                
+
+            </div>
+            <div class="sidebar2">
+                <div class="others">
+                    <h5>Groups</h5>
+                    <h5>Events</h5>
+                    <h5>Follwed Hashtags</h5>
+                    
+                </div>
+                <div class="discovermore">
+                    <h5>Discover more</h5>
+                </div>
+
+            </div>
+        </aside>
+
+        <main>
+            <div class="main">
+                <div class="startpost">
+                    <img src="C:\Users\intel\Desktop\Hands On\practice.html\likedinpic.jpeg" alt="image">
+                    <input type="search" placeholder="Start a post">
+                </div>
+                <div class="startpostothers">
+
+                    <div class="photo">
+                        <i class="fa-regular fa-image"></i>
+                        <h4>Photo</h4>
+                    </div>
+                    <div class="video">
+                        <i class="fa-brands fa-youtube"></i>
+                        <h4>Video</h4>
+
+                    </div>
+                    <div class="event">
+                        <i class="fa-sharp fa-solid fa-calendar"></i>
+                        <h4>Event</h4>
+
+                    </div>
+                    <div class="article">
+                        <i class="fa-solid fa-newspaper"></i>
+                        <h4>Write article</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="hr">
+                <hr>
+                <h5>Sort by: <span>Top <i class="fa-sharp fa-solid fa-caret-down"></i></span></h5>
+            </div>
+
+            <div class="display1">
+                <div class="displaypost">
+                    
+                </div>
+               
+            </div>
+        </main>
+
+        <div class="rightside">
+            <div class="linkedinnews">
+                <div class="newscontain">
+                    <h4>Linkedin News</h4>
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div class="information">
+                    
+                        
+                        <div><i class="fa-solid fa-period"></i></i><h4>Fewer jobs in crypto space</h4>
+                        <h5>3hrs ago .500 readers</h5></div>
+                    
+
+                        <div>lobal investor to bet big on india</div>
+                        
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
