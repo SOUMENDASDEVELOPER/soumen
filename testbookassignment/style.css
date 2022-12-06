@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+}
+
+
+#container{
+    background-color:rgb(240, 67, 214);
+    height:400px;
+    width:900px;
+    align-items: center;
+    text-align: center;
+    padding-top:80px;
+    border:solid black 5px;
+    border-radius: 20px;
+}  
+
+
+#clock{ 
+    height:45%;
+    width:90%;
+    margin-top:40px;
+    margin-left:40px;
+    margin-right:50px;
+    border:solid rgb(223, 210, 210) 5px;
+    border-radius: 20px;
+    text-align: center;
+    align-items: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:rgb(223, 210, 210);
+    font-size:120px;
+    
+}
+#clock:hover{
+    color:black;
+    border:black solid 5px;
+    cursor: pointer;
+    background-color: rgb(156, 152, 147);
+}
